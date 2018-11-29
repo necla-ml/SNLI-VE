@@ -1,3 +1,3 @@
-# SNLI-VE: A Visual Entailment Dataset based on SNLI and Flick30K
+# SNLI-VE: Visual Entailment Dataset
 
 Coming soon...
