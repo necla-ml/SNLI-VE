@@ -1,3 +1,3 @@
-# EVE: Explainable Visual Entailment System
+# SNLI-VE: A Visual Entailment Dataset based on SNLI and Flick30K
 
 Coming soon...
