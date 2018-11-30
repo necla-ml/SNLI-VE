@@ -2,16 +2,15 @@
   
   
 # SNLI-VE: Visual Entailment Dataset  
-<p align="center">  
+<p align="left">  
   <b>Ning Xie, Farley Lai, Derek Doran, Asim Kadav</b></span>  
 </p>  
-  
-This is the <b>SNLI-VE</b> dataset we propose for <b>Visual Entailment (VE)</b> task in [Visual Entailment Task for Visually-Grounded Language Learning  
-](https://arxiv.org/abs/1811.10582) (accpeted by <b>[NeurIPS 2018 ViGIL workshop](https://nips2018vigil.github.io/)</b>).   
+
+This is the <b>SNLI-VE</b> dataset we propose for <b>Visual Entailment (VE)</b> task in [Visual Entailment Task for Visually-Grounded Language Learning](https://arxiv.org/abs/1811.10582) (accpeted by <b>[NeurIPS 2018 ViGIL workshop](https://nips2018vigil.github.io/)</b>).   
   
 <div align="center">  
   <img   
-  src="https://drive.google.com/uc?export=view&id=1Bo83CcaPKJqrNg0F_crbeAfCRiTDWlqz" style="float:left" width="500px">  
+  src="https://drive.google.com/uc?export=view&id=1Bo83CcaPKJqrNg0F_crbeAfCRiTDWlqz" style="float:left" width="1000px">  
 </div>  
   
   
@@ -119,19 +118,7 @@ We also provide a sample script to parse SNLI-VE dataset, see [`snli_ve_parser.p
 
 It is easy to extent our SNLI-VE dataset with **[Flickr30k Entities](http://web.engr.illinois.edu/~bplumme2/Flickr30kEntities/)** if fine-grained annotations is required to your experiment settings.
 
-  
-<!-- To download and unpack the data, run the following commands:  
-```bash  
-wget https://s3-us-west-1.amazonaws.com/clevr/CLEVR_v1.0.zip  
-unzip CLEVR_v1.0.zip  
-mv CLEVR_v1.0 CLEVR_v1  
-mkdir CLEVR_v1/data  
-mv CLEVR_v1/questions/* CLEVR_v1/data/  
-```  
-The final command moves the dataset questions into the `data` directory, where we will put all the data files we use during training.  
- -->  
-  
-  
+
 ## Bibtex  
 ```  
 @article{xie2018visual,
@@ -145,5 +132,5 @@ The final command moves the dataset questions into the `data` directory, where w
 Thank you for your interest in our dataset! Please contact me at xie.25@wright.edu for any questions, comments, or suggestions! :-)  
   
 <div align="center">  
-    <img src="https://drive.google.com/uc?export=view&id=1c5vFLq4yrj1wcHDds5WEVoTjM-K039La" style="float:left" width="300px">  
+    <img src="https://drive.google.com/uc?export=view&id=1c5vFLq4yrj1wcHDds5WEVoTjM-K039La" style="float:left" width="200px"> 
 </div>
