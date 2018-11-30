@@ -1,6 +1,3 @@
-
-  
-  
 # SNLI-VE: Visual Entailment Dataset  
 <p align="left">  
   <b>Ning Xie, Farley Lai, Derek Doran, Asim Kadav</b></span>  
@@ -32,7 +29,7 @@ Specifically, given an image as `premise`, and a natural language sentence as `h
 	- [<b>SNLI-VE test split</b>](https://drive.google.com/file/d/1_n4g8sbw_P6KBayvJ9B8KklZDFr0uPsQ/view?usp=sharing)  
 - Scritps to <b>generate SNLI-VE dataset</b>
 	- In case you might prefer to generate SNLI-VE by yourself, we provide the generation script [`snli_ve_generator.py`](snli_ve_generator.py).
-- Scritps to <b>parse SNLI-VE dataset</b>
+- Scripts to <b>parse SNLI-VE dataset</b>
 	- [`snli_ve_parser.py`](snli_ve_parser.py) is a sample script to parse SNLI-VE dataset, please feel free to revise as you like! 
   
 ## Examples from SNLI-VE  
@@ -112,11 +109,11 @@ The *question* here for SNLI-VE dataset is the `hypothesis`. As shown in the fig
   
 We also provide a sample script to parse SNLI-VE dataset, see [`snli_ve_parser.py`](snli_ve_parser.py). Please feel free to revise it to your own settings.
   
-## SNLI-VE Extentions  
+## SNLI-VE Extensions  
   
-**[Flickr30k Entities](http://web.engr.illinois.edu/~bplumme2/Flickr30kEntities/)** dataset is an extention to Flickr30k, which contains detailed annotations. 
+**[Flickr30k Entities](http://web.engr.illinois.edu/~bplumme2/Flickr30kEntities/)** dataset is an extension to Flickr30k, which contains detailed annotations. 
 
-It is easy to extent our SNLI-VE dataset with **[Flickr30k Entities](http://web.engr.illinois.edu/~bplumme2/Flickr30kEntities/)** if fine-grained annotations is required to your experiment settings.
+It is easy to extend our SNLI-VE dataset with **[Flickr30k Entities](http://web.engr.illinois.edu/~bplumme2/Flickr30kEntities/)** if fine-grained annotations is required to your experiment settings.
 
 
 ## Bibtex  
