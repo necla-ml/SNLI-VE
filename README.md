@@ -128,7 +128,7 @@ Consistent to [GTE](https://arxiv.org/pdf/1806.05645.pdf), the labels of most `e
 Thus we tried to revise the SNLI-VE dataset, with a focus on the `neutral` examples. 
 We adopted two strategies to **automatically** revise the dataset, by deleting `neutral` examples whose label might be changed after image is introduced.
 - Text Pattern
-- Text Entailment Task
+- Textual Entailment Task
 
 ### Text Pattern for Neutral Revising
 
@@ -145,16 +145,17 @@ This is to use `neutral pattern` to carefully pick up examples that should remai
 - extra media needed, such as,
     - "sound"
     - "smell"
+- ...
     
 Neutral hypotheses that contain those patterns tend to remain neutral. 
 Based on our experiment, `more than 65%` of the neutral examples contain some patterns thus should remain neutral. 
 
-The rest of neutral examples (totally `61337` examples) should be kicked out (see [uncertain_neutral_list.txt](to_be_delete_neutral/uncertain_neutral_list.txt) for the to-be-deleted neutral examples)
+The rest of neutral examples (totally `61337` examples) should be kicked out (see [uncertain_neutral_list.txt](to_be_delete_neutral/uncertain_neutral_list.txt) for the full to-be-deleted list)
  
 
-### Text Entailment Task for Neutral Revising
+### Textual Entailment Task for Neutral Revising
 
-Another strategy to find out *uncertain neutral examples* is to take advantage of the text entailment task.
+Another strategy to find out *uncertain neutral examples* is to take advantage of the textual entailment task.
 
 The reason that causes the potential label changing for neutral examples is the original text premise may only cover a portion of the whole image information, 
 thus the hypothesis generated upon that partial information may not hold after more information is available. 
@@ -162,8 +163,8 @@ thus the hypothesis generated upon that partial information may not hold after m
 However, as each image in SNLI-VE dataset was from Flickr30K, and there are 5 captions correspondingly. 
 With all captions considered, we believe it is very possible to cover most information in the given image.  
 
-For each neutral example, we form 5 `(caption_i, hypothesis)` pairs, and use a pretrained text entailment model 
-(here we use allnlp model that pretrained on the SNLI dataset). If 3 out of 5 prediction results are `entailment` or `contradiction`, 
+For each neutral example, we form 5 `(caption_i, hypothesis)` pairs, and use a pretrained textual entailment model 
+(here we use [allennlp](https://allennlp.org/models) model that pretrained on the SNLI dataset). If 3 out of 5 prediction results are `entailment` or `contradiction`, 
 then it will be added to the to-be-deleted list (see [uncertain_neutral_list_allennlp.txt](to_be_delete_neutral/uncertain_neutral_list_allennlp.txt) for the full to-be-deleted list, totally `87076` examples)
  
 
