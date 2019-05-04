@@ -10,6 +10,9 @@ This is the <b>SNLI-VE</b> dataset we propose for <b>Visual Entailment (VE)</b> 
   src="https://drive.google.com/uc?export=view&id=1Bo83CcaPKJqrNg0F_crbeAfCRiTDWlqz" style="float:left" width="1000px">  
 </div>  
   
+
+
+
   
 ## Overview  
 
@@ -114,6 +117,55 @@ We also provide a sample script to parse SNLI-VE dataset, see [`snli_ve_parser.p
 **[Flickr30k Entities](http://web.engr.illinois.edu/~bplumme2/Flickr30kEntities/)** dataset is an extension to Flickr30k, which contains detailed annotations. 
 
 It is easy to extend our SNLI-VE dataset with **[Flickr30k Entities](http://web.engr.illinois.edu/~bplumme2/Flickr30kEntities/)** if fine-grained annotations is required to your experiment settings.
+
+## *Important Note
+
+In our further studies, we notice after replacing the text premise with the corresponding image, as image contains much more information, 
+the original label might have been changed! This is also reported by [GTE (Grounded Textual Entailment)](https://arxiv.org/pdf/1806.05645.pdf) in **Table 2**.
+
+Consistent to [GTE](https://arxiv.org/pdf/1806.05645.pdf), the labels of most `entailment` and `contradiction` examples remain original, while about 30% of `neutral` examples do not hold after considering the image. 
+
+Thus we tried to revise the SNLI-VE dataset, with a focus on the `neutral` examples. 
+We adopted two strategies to **automatically** revise the dataset, by deleting `neutral` examples whose label might be changed after image is introduced.
+- Text Pattern
+- Text Entailment Task
+
+### Text Pattern for Neutral Revising
+
+This is to use `neutral pattern` to carefully pick up examples that should remain neutral, patterns include but not limited to,
+- subjective opinion, such as, 
+   - feeling, 
+   - intention, 
+   - attribute
+- extra knowledge needed, such as,
+    - relation
+    - ownership
+    - event
+    - causality
+- extra media needed, such as,
+    - "sound"
+    - "smell"
+    
+Neutral hypotheses that contain those patterns tend to remain neutral. 
+Based on our experiment, `more than 65%` of the neutral examples contain some patterns thus should remain neutral. 
+
+The rest of neutral examples (totally `61337` examples) should be kicked out (see [uncertain_neutral_list.txt](to_be_delete_neutral/uncertain_neutral_list.txt) for the to-be-deleted neutral examples)
+ 
+
+### Text Entailment Task for Neutral Revising
+
+Another strategy to find out *uncertain neutral examples* is to take advantage of the text entailment task.
+
+The reason that causes the potential label changing for neutral examples is the original text premise may only cover a portion of the whole image information, 
+thus the hypothesis generated upon that partial information may not hold after more information is available. 
+
+However, as each image in SNLI-VE dataset was from Flickr30K, and there are 5 captions correspondingly. 
+With all captions considered, we believe it is very possible to cover most information in the given image.  
+
+For each neutral example, we form 5 `(caption_i, hypothesis)` pairs, and use a pretrained text entailment model 
+(here we use allnlp model that pretrained on the SNLI dataset). If 3 out of 5 prediction results are `entailment` or `contradiction`, 
+then it will be added to the to-be-deleted list (see [uncertain_neutral_list_allennlp.txt](to_be_delete_neutral/uncertain_neutral_list_allennlp.txt) for the full to-be-deleted list, totally `87076` examples)
+ 
 
 
 ## Bibtex  
