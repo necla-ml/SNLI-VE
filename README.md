@@ -119,6 +119,21 @@ We also provide a sample script to parse SNLI-VE dataset, see [`snli_ve_parser.p
 It is easy to extend our SNLI-VE dataset with **[Flickr30k Entities](http://web.engr.illinois.edu/~bplumme2/Flickr30kEntities/)** if fine-grained annotations is required to your experiment settings.
 
 
+## SNLI-VE Quality Analysis
+
+To check the quality of SNLI-VE dataset, we randomly sampled 217 (image, hypothesis) pairs from all three split (train+val+test, totally 565286 pairs).
+Among all sampled examples, 20 (about 9.2\%) examples are incorrectly labeled, among which the majority are `neutral` examples. 
+This is consistent to the analysis reported by [GTE](https://www.aclweb.org/anthology/C18-1199) in Table 2. 
+
+It is worth noting that the original SNLI dataset is not perfectly labeled, 
+and 8.8\% of the sampled data is not assigned a `gold label`, 
+implying the disagreement within human labelers. 
+We admit the noisiness of SNLI-VE, which we believe is a common scenario in other large scale datasets, 
+
+However, if the dataset quality is a major concern to you, 
+we suggest dropping neutral examples and conduct experiments on **SNLI-VE-binary** task
+(i.e. only use `entailment` and `contradiction` examples).
+  
 
 ## Bibtex  
 ```  
