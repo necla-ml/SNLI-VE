@@ -3,7 +3,7 @@
   <b>Ning Xie, Farley Lai, Derek Doran, Asim Kadav</b></span>  
 </p>  
 
-This is the <b>SNLI-VE</b> dataset we propose for <b>Visual Entailment (VE)</b> task in [Visual Entailment Task for Visually-Grounded Language Learning](https://arxiv.org/abs/1811.10582) (accpeted by <b>[NeurIPS 2018 ViGIL workshop](https://nips2018vigil.github.io/)</b>).   
+This is the <b>SNLI-VE</b> dataset we propose for <b>Visual Entailment (VE)</b> task in [Visual Entailment Task for Visually-Grounded Language Learning](https://arxiv.org/abs/1811.10582) (accpeted by <b>[NeurIPS 2018 ViGIL workshop](https://nips2018vigil.github.io/)</b>). Please also refer to our [full paper](https://arxiv.org/abs/1901.06706) for detailed analysis and models.
   
 <div align="center">  
   <img   
@@ -137,6 +137,13 @@ we suggest dropping neutral examples and conduct experiments on **SNLI-VE-binary
 
 ## Bibtex  
 ```  
+@article{xie2019visual,
+  title={Visual entailment: A novel task for fine-grained image understanding},
+  author={Xie, Ning and Lai, Farley and Doran, Derek and Kadav, Asim},
+  journal={arXiv preprint arXiv:1901.06706},
+  year={2019}
+}
+
 @article{xie2018visual,
   title={Visual Entailment Task for Visually-Grounded Language Learning},
   author={Xie, Ning and Lai, Farley and Doran, Derek and Kadav, Asim},
