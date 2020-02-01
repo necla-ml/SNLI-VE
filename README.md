@@ -116,7 +116,7 @@ We also provide a sample script to parse SNLI-VE dataset, see [`snli_ve_parser.p
   
 **[Flickr30k Entities](http://web.engr.illinois.edu/~bplumme2/Flickr30kEntities/)** dataset is an extension to Flickr30k, which contains detailed annotations. 
 
-It is easy to extend our SNLI-VE dataset with **[Flickr30k Entities](http://web.engr.illinois.edu/~bplumme2/Flickr30kEntities/)** if fine-grained annotations is required to your experiment settings.
+It is easy to extend our SNLI-VE dataset with **[Flickr30k Entities](http://web.engr.illinois.edu/~bplumme2/Flickr30kEntities/)** if fine-grained annotations are required to your experiment settings.
 
 
 ## SNLI-VE Quality Analysis
