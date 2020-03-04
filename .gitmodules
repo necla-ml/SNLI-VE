@@ -1,3 +1,4 @@
 [submodule "submodules/ML"]
 	path = submodules/ML
 	url = https://gitlab.com/necla-ml/ML.git
+	ignore = dirty
