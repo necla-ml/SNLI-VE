@@ -6,9 +6,15 @@ __pycache__/
 # C extensions
 *.so
 
+# PyTorch
+.vector_cache/
+*.pth
+*.h5
+
 # Distribution / packaging
 .Python
 build/
+export/
 develop-eggs/
 dist/
 downloads/
@@ -102,3 +108,6 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# vim
+*.swp
