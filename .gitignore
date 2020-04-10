@@ -114,3 +114,6 @@ venv.bak/
 
 # json
 *.jsonl
+
+# data/
+data/Flickr30K
