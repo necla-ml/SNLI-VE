@@ -88,18 +88,14 @@ SNLI-VE is no exception but we believe it is a common scenario in other large sc
 However, if the dataset quality is a major concern to you, 
 we suggest dropping the `neutral` classs and only use `entailment` and `contradiction` examples.
 
-## SNLI-VE Scripts
+## SNLI-VE Creation
 
 [snli_ve_generator.py](vet/tools/snli_ve_generator.py) generates the SNLI-VE dataset in `train`, `dev` and `test` splits with disjoint image sets. 
 Each entry contains a `Flickr30kID` field to associate with the original Flickr30K image id. 
 
 [snli_ve_parser.py](vet/tools/snli_ve_parser.py) parses entires in SNLI-VE for applications and is free to revise.
 
-Refer to the [Data Preparation](#Data-Preparation)
-
-### Data Preparation
-
-Follow the instructions below to set up the environment to generate SNLI-VE:
+Follow the instructions below to set up the environment and generate SNLI-VE:
 
 1. Set the conda environment and dependencies
 
