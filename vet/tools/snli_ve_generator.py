@@ -3,9 +3,9 @@
 '''
 SNLI-VE Generator
 
-Authors: Farley Lai(farleylai@nec-labs.com), Ning Xie
+Authors: Ning Xie, Farley Lai(farleylai@nec-labs.com)
 
-# Copyright (C) 2018 NEC Laboratories America, Inc. ("NECLA"). 
+# Copyright (C) 2020 NEC Laboratories America, Inc. ("NECLA"). 
 # All rights reserved.
 #
 # This source code is licensed under the license found in the LICENSE file in
