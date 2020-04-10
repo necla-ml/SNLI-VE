@@ -1,7 +1,9 @@
+#!/usr/bin/env python
+
 '''
 SNLI-VE Generator
 
-Author: Ning Xie, xie.25@wright.edu
+Authors: Farley Lai(farleylai@nec-labs.com), Ning Xie
 
 # Copyright (C) 2018 NEC Laboratories America, Inc. ("NECLA"). 
 # All rights reserved.
@@ -14,7 +16,7 @@ Author: Ning Xie, xie.25@wright.edu
 import os
 import jsonlines
 from collections import defaultdict, OrderedDict
-
+from pathlib import Path
 
 
 def prepare_all_data(SNLI_root, SNLI_files):
@@ -39,9 +41,9 @@ def prepare_all_data(SNLI_root, SNLI_files):
                 gold_label = line['gold_label']
                 # only consider Flickr30k (pairID.find('vg_') == -1) items whose gold_label != '-'
                 if gold_label != '-' and pairID.find('vg_') == -1:
-                    image_name = pairID[:pairID.rfind('.jpg')]+'.jpg'
+                    imageId = pairID[:pairID.rfind('.jpg')] # XXX Removed suffix: '.jpg'
                     # Add Flikr30kID to the dataset
-                    line['Flikr30kID'] = image_name
+                    line['Flickr30K_ID'] = imageId
                     line = OrderedDict(sorted(line.items()))
                     data_list.append(line)
         data_dict[data_type] = data_list
@@ -112,33 +114,30 @@ def split_data(all_data, image_index_dict, split_root, split_files, SNLI_VE_root
                 for idx in index_list:
                     jsonl_writer.write(all_data[idx])
 
-
-
-
-
-
-if __name__ == '__main__':
+def main():
     # SNLI-VE generation resource: SNLI dataset
-    SNLI_root = '../data/snli_1.0/'
+    FLICKR30K = Path('data/Flickr30K')
+    SNLI_root = FLICKR30K / 'snli_1.0'
     SNLI_files = {'dev': 'snli_1.0_dev.jsonl',
                   'test': 'snli_1.0_test.jsonl',
                   'train': 'snli_1.0_train.jsonl'}
 
     # SNLI-VE generation resource: Flickr30k file lists
-    split_root = '../data/snli_1.0/'
+    split_root = Path('data')
     split_files = {'test': 'flickr30k_test.lst',
                    'train_val': 'flickr30k_train_val.lst'}
 
     # SNLI-VE generation destination
-    SNLI_VE_root = './'
+    SNLI_VE_root = Path('data')
     SNLI_VE_files = {'dev': 'snli_ve_dev.jsonl',
                      'test': 'snli_ve_test.jsonl',
                      'train': 'snli_ve_train.jsonl'}
 
-    print('\n*** SNLI-VE Generation Start! ***')
-
+    print('*** SNLI-VE Generation Start! ***')
     all_data, image_index_dict = prepare_all_data(SNLI_root, SNLI_files)
     split_data(all_data, image_index_dict, split_root, split_files, SNLI_VE_root, SNLI_VE_files)
+    print('*** SNLI-VE Generation Done! ***')
 
-    print('\n*** SNLI-VE Generation Done! ***')
 
+if __name__ == '__main__':
+    main()

@@ -1,11 +1,11 @@
 #!/bin/sh
 
-read -p "Path to download dataset? [Flickr30K]" path
+read -p "Path to download dataset? [Flickr30K] " path
 path=${path:-Flickr30K}
 mkdir -p $path
 cd $path
 
-read -p "Download SNLI dataset? y/[n]" ans
+read -p "Download SNLI dataset? y/[n] " ans
 ans=${ans:-no}
 if [ $ans = 'y' ]; then
     if [ ! -f snli_1.0.zip ]; then
@@ -14,9 +14,8 @@ if [ $ans = 'y' ]; then
     unzip snli_1.0.zip
     rm -fr __MACOSX/
 fi
-exit 0
 
-read -p "Downloading Flickr30K images and captions? y/[n]" ans
+read -p "Downloading Flickr30K images and captions? y/[n] " ans
 ans=${ans:-no}
 if [ $ans = 'y' ]; then
     #mkdir ~/.kaggle
@@ -41,7 +40,7 @@ if [ $ans = 'y' ]; then
     # rm flickr30k_images.tar.gz
 fi
 
-read -p "Downloading Flickr30K features from Faster R-CNN trained on Visual Genome? [y/n]" ans
+read -p "Downloading Flickr30K features from Faster R-CNN trained on Visual Genome? y/[n] " ans
 ans=${ans:-no}
 if [ $ans = 'y' ]; then
     if [ ! -f flickr30k_features.zip ]; then
