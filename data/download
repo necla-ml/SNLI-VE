@@ -28,10 +28,8 @@ if [ $ans = 'y' ]; then
     # rm flickr-image-dataset.zip
 
     if [ ! -f flickr30k_images.tar.gz ]; then
-        # Credits to BAN: https://github.com/jnhwkim/ban-vqa
-        wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://drive.google.com/uc?export=download&id=0B_PL6p-5reUAZEM4MmRQQ2VVSlk' -O tmp.html
-        wget --load-cookies /tmp/cookies.txt "https://drive.google.com/uc?export=download&confirm=$(cat tmp.html | sed -En 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=0B_PL6p-5reUAZEM4MmRQQ2VVSlk" -O flickr30k_images.tar.gz
-        rm -rf /tmp/cookies.txt tmp.html
+        # Hosted by Allen NLP
+        wget https://storage.googleapis.com/allennlp-public-data/snli-ve/flickr30k_images.tar.gz
     fi
 
     tar zxf flickr30k_images.tar.gz
@@ -45,15 +43,20 @@ ans=${ans:-no}
 if [ $ans = 'y' ]; then
     if [ ! -f flickr30k_features.zip ]; then
         # Credits to BAN: https://github.com/jnhwkim/ban-vqa
-        wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://drive.google.com/uc?export=download&id=11OD_qq7ITBarJwWZfi0bWIRw3HPEaHwE' -O tmp.html
-        wget --load-cookies /tmp/cookies.txt "https://drive.google.com/uc?export=download&confirm=$(cat tmp.html | sed -En 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=11OD_qq7ITBarJwWZfi0bWIRw3HPEaHwE" -O flickr30k_features.zip
+        # prev fileid=11OD_qq7ITBarJwWZfi0bWIRw3HPEaHwE
+        fileid=1BmcxeY1kXzMZv54d4wMtl7HGc8Cs9zgO    
+        wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate \
+                "https://drive.google.com/uc?export=download&id=${fileid}" -O tmp.html && \
+        wget --load-cookies /tmp/cookies.txt \
+                "https://drive.google.com/uc?export=download&confirm=$(cat tmp.html | sed -En 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=${fileid}" \
+                -O flickr30k_features.zip && \
         rm -rf /tmp/cookies.txt tmp.html
     fi
     mkdir -p features
     unzip flickr30k_features.zip -d features/resnet101-faster-rcnn-vg-100-2048
     # rm flickr30k_features.zip
 fi
-
+exit
 echo "Downloading Flickr30K Entities..."
 git clone https://github.com/BryanPlummer/flickr30k_entities.git repo
 mv repo/*.txt .

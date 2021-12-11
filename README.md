@@ -8,6 +8,17 @@ Refer to our [full paper](https://arxiv.org/abs/1901.06706) for detailed analysi
 
 ![Example](https://drive.google.com/uc?export=view&id=1Bo83CcaPKJqrNg0F_crbeAfCRiTDWlqz)
 
+## Updates
+
+12/10/2021:
+
+- The Flickr images download is updated and now hosted by AlleNLP
+- The Flickr features download link is updated but the archive may require newer unzip to decompress on Linux
+
+NOTE: 
+
+- The data remains hosted by external parties and subject to change
+
 ## Leaderboard
 
 [Checkout the leaderboard from paperswith code](https://paperswithcode.com/sota/visual-entailment-on-snli-ve-val)
