@@ -1,7 +1,9 @@
 # SNLI-VE: Visual Entailment Dataset  
 **Ning Xie, Farley Lai, Derek Doran, Asim Kadav**
-  
-<img src="https://www.nec-labs.com/static/logos/Logo-Color.png" alt="NEC Laboratories America" width="250" height="70" />
+
+<a href="https://www.nec-labs.com/">
+  <img src="https://www.nec-labs.com/static/logos/Logo-Color.png" alt="NEC Laboratories America" width="250" height="70" />
+</a>
 
 **SNLI-VE** is the dataset proposed for the **Visual Entailment (VE)** task investigated in [Visual Entailment Task for Visually-Grounded Language Learning](https://arxiv.org/abs/1811.10582) accpeted to [NeurIPS 2018 ViGIL workshop](https://nips2018vigil.github.io/)).
 Refer to our [full paper](https://arxiv.org/abs/1901.06706) for detailed analysis and evaluations.
